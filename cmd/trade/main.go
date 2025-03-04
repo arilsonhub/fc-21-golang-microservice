@@ -21,13 +21,13 @@ func main() {
 	kafkaMsgChan := make(chan *ckafka.Message)
 
 	consumerConfig := &ckafka.ConfigMap{
-		"bootstrap.servers": "localhost:9094",
+		"bootstrap.servers": "host.docker.internal:9094",
 		"group.id":          "trade",
 		"auto.offset.reset": "latest", //earliest é o ideal
 	}
 
 	producerConfig := &ckafka.ConfigMap{
-		"bootstrap.servers": "localhost:9094",
+		"bootstrap.servers": "host.docker.internal:9094",
 	}
 
 	producer := kafka.NewKafkaProducer(producerConfig)
